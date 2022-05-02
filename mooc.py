@@ -34,11 +34,14 @@ def initial(beginUrl):
     return driver
 
 
-def operateReStart(driver, ele):
+def operateReStart(driver):
     print("operate restart")
     sleep(2)
+    driver.switch_to.default_content()
+    driver.switch_to.frame(driver.find_element_by_xpath('//*[@id="iframe"]'))
+    driver.switch_to.frame(driver.find_element_by_xpath('//*[@id="ext-gen1045"]/iframe'))
+    ele = driver.find_element_by_xpath('//*[@id="video"]/div[5]/button[1]')
     ele.click()
-
 
 def isFinished(driver):
     try:
@@ -49,7 +52,7 @@ def isFinished(driver):
         if ele.text == '重播':
             return True
         elif ele.text == "播放":
-            operateReStart(driver, ele)
+            operateReStart(driver)
             return False
         else:
             return False
