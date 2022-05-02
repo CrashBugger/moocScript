@@ -4,8 +4,8 @@ from time import sleep
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 
-username = "18623796640"
-password = "universe12345678"
+username = "账号"
+password = "密码"
 
 
 def executeJavaScript(driver):
